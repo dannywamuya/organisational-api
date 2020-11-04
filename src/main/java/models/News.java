@@ -9,6 +9,10 @@ public class News {
     public String content;
     public String newsType;
     public int userId;
+    public int departmentId;
+
+    public int getDepartmentId() { return departmentId; }
+    public void setDepartmentId(int departmentId) { this.departmentId = departmentId; }
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
