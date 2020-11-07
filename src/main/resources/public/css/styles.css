@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#about {
+    margin-top : 5%;
+    text-align : center;
+}
+
+.center{
+    text-align : center;
+}
+
+#main, #body {
+    margin-top : 5%;
+}
+
+ul {
+    list-style: none;
+}
+
+.mono {
+    width : 85%;
+}
+
+.elem {
+    padding : 5px 0;
+}

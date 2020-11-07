@@ -13,7 +13,7 @@ public interface DepartmentNewsDao {
 
     //READ
     //Get all
-    List<DepartmentNews> getAll(int departmentId);
+    List<DepartmentNews> getAll();
 
     //Find by Id
     DepartmentNews findById(int id);

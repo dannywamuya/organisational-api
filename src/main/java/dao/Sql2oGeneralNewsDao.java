@@ -16,7 +16,7 @@ public class Sql2oGeneralNewsDao implements GeneralNewsDao{
 
     @Override
     public void add(GeneralNews generalNews) {
-        String sql = "INSERT INTO news (title, content, newsType, userId, departmentId) VALUES (:title, :content, :newsType, :userId, null)";
+        String sql = "INSERT INTO news (title, content, newsType, userId, departmentId) VALUES (:title, :content, 'General', :userId, null)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(generalNews)
@@ -31,7 +31,7 @@ public class Sql2oGeneralNewsDao implements GeneralNewsDao{
     @Override
     public List<GeneralNews> getAll() {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM news")
+            return con.createQuery("SELECT * FROM news WHERE newsType = 'General'")
                     .executeAndFetch(GeneralNews.class);
         }
     }
@@ -39,7 +39,7 @@ public class Sql2oGeneralNewsDao implements GeneralNewsDao{
     @Override
     public GeneralNews findById(int id) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM news WHERE id = :id")
+            return con.createQuery("SELECT * FROM news WHERE id = :id AND newsType = 'General'")
                     .addParameter("id", id)
                     .executeAndFetchFirst(GeneralNews.class);
         }
@@ -48,7 +48,7 @@ public class Sql2oGeneralNewsDao implements GeneralNewsDao{
     @Override
     public List<GeneralNews> findByUser(int userId) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM news WHERE userId = :userId")
+            return con.createQuery("SELECT * FROM news WHERE userId = :userId AND newsType = 'General'")
                     .addParameter("userId", userId)
                     .executeAndFetch(GeneralNews.class);
         }

@@ -17,7 +17,7 @@ public class Sql2oDepartmentNewsDao implements DepartmentNewsDao {
 
     @Override
     public void add(DepartmentNews departmentNews) {
-        String sql = "INSERT INTO news (title, content, newsType, userId, departmentId) VALUES (:title, :content, :newsType, :userId, :departmentId)";
+        String sql = "INSERT INTO news (title, content, newsType, userId, departmentId) VALUES (:title, :content, 'Department', :userId, :departmentId)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(departmentNews)
@@ -30,10 +30,10 @@ public class Sql2oDepartmentNewsDao implements DepartmentNewsDao {
     }
 
     @Override
-    public List<DepartmentNews> getAll(int departmentId) {
+    public List<DepartmentNews> getAll() {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM news WHERE departmentId = :departmentId")
-                    .addParameter("departmentId", departmentId)
+            return con.createQuery("SELECT * FROM news WHERE newsType = 'Department'")
+//                    .addParameter("newsType", newsType)
                     .executeAndFetch(DepartmentNews.class);
         }
     }
@@ -50,7 +50,7 @@ public class Sql2oDepartmentNewsDao implements DepartmentNewsDao {
     @Override
     public List<DepartmentNews> findByUser(int userId) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM news WHERE userId = :userId")
+            return con.createQuery("SELECT * FROM news WHERE userId = :userId AND newsType = 'Department'")
                     .addParameter("userId", userId)
                     .executeAndFetch(DepartmentNews.class);
         }
