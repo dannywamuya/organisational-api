@@ -29,5 +29,6 @@ public interface DepartmentNewsDao {
 
     //Delete all
     void deleteAllDepartmentNews(int departmentId);
+    void deleteAll();
 
 }

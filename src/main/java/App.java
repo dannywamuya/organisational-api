@@ -35,10 +35,10 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
 
-        String connectionString = "jdbc:h2:~/organisational-api.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString,"danny","password");
-//        String connectionString = "jdbc:postgresql://localhost:5432/orgapi";
-//        Sql2o sql2o = new Sql2o(connectionString, "danny","password");
+//        String connectionString = "jdbc:h2:~/organisational-api.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+//        Sql2o sql2o = new Sql2o(connectionString,"danny","password");
+        String connectionString = "jdbc:postgresql://localhost:5432/orgapi";
+        Sql2o sql2o = new Sql2o(connectionString, "danny","password");
 
         departmentDao = new Sql2oDepartmentDao(sql2o);
         departmentNewsDao = new Sql2oDepartmentNewsDao(sql2o);

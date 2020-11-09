@@ -33,7 +33,6 @@ public class Sql2oDepartmentNewsDao implements DepartmentNewsDao {
     public List<DepartmentNews> getAll() {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM news WHERE newsType = 'Department'")
-//                    .addParameter("newsType", newsType)
                     .executeAndFetch(DepartmentNews.class);
         }
     }
@@ -106,4 +105,16 @@ public class Sql2oDepartmentNewsDao implements DepartmentNewsDao {
             System.out.println(ex);
         }
     }
+
+    @Override
+    public void deleteAll() {
+        String sql = "DELETE from news";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
 }
