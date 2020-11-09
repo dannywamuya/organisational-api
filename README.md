@@ -24,7 +24,7 @@ https://dannyorgapi.herokuapp.com
 - PostgreSql
 
 ## Consume
-To use this API, visit the link in the about for more detailed information:
+To use this API, visit the live link above for more detailed information:
 
 ##### [View more routes and exceptions](https://github.com/dannywamuya/organisational-api/blob/master/src/main/java/App.java)
 
