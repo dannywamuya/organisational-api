@@ -1,0 +1,125 @@
+{{#partial "content"}}
+
+    <div id="about">
+        <h5><strong>Welcome</strong></h5>
+        Welcome to the Organisational Api. This was developed with the office/workspace in mind.
+        Using this Api will allow you to update each other with the latest news in your office. The database keeps tracks of all the users and news posts that are made.
+        There's also added features for departmental news.
+    </div>
+    <hr>
+
+    <div id="main">
+        <div class="center">
+            <h5><strong>How to Use</strong></h5>
+            <p>You can post and get data to the database using the routes specified below.</p>
+            <p>We recommend using <strong><a href="https://www.postman.com/" target="_blank" style="text-decoration : none;">postman</a></strong> to pass JSON data to the API for ease of use.</p>
+            <p>Future implementation includes adding update and delete functionality to make it a full CRUD app.</p>
+        </div>
+        <hr>
+    </div>
+
+    <div id="body">
+        <h5 class="center"><strong>Post Requests</strong></h5>
+        <div class="container mono">
+            <div>
+                <p><strong>/users/new</strong></p>
+                <p>This route will allow you to pass in JSON data for a new <strong>User</strong></p>
+                <p>The values required are denoted by the keys:</p>
+                <ul>
+                    <li>"fullName" : for the username </li>
+                    <li>"position" : for the position they hold in the company </li>
+                    <li>"role" : for the user role in the company </li>
+                    <li>"departmentId" : for the department they are in <strong>(int)</strong> </li>
+                </ul>
+            </div>
+            <div>
+                <p><strong>/departments/new</strong></p>
+                <p>This route will allow you to pass in JSON data for a new <strong>Department</strong></p>
+                <p>The values required are denoted by the keys:</p>
+                <ul>
+                    <li>"departmentName" : for the department name </li>
+                    <li>"description" : for the description of the department </li>
+                </ul>
+            </div>
+            <div>
+                <p><strong>/generalnews/new</strong></p>
+                <p>This route will allow you to pass in JSON data for new <strong>General News</strong></p>
+                <p>The values required are denoted by the keys:</p>
+                <ul>
+                    <li>"title" : for the title of the article </li>
+                    <li>"content" : for the content of the article </li>
+                    <li>"userId" : for the author of the article </li>
+                </ul>
+            </div>
+            <div>
+                <p><strong>/departmentnews/new</strong></p>
+                <p>This route will allow you to pass in JSON data for new <strong>Department News</strong></p>
+                <p>The values required are denoted by the keys:</p>
+                <ul>
+                    <li>"title" : for the title of the article </li>
+                    <li>"content" : for the content of the article </li>
+                    <li>"userId" : for the author of the article </li>
+                    <li>"departmentId" : for the department of the news article <strong>(int)</strong></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+
+        <h5 class="center" style="margin-top : 5%;"><strong>Get Requests</strong></h5>
+        <div class="container mono">
+            <div class="elem">
+                <p><strong>/users</strong></p>
+                <p>This route will get all users in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/users/:userId</strong></p>
+                <p>This route will get any user by their Id in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/users/:userId/news</strong></p>
+                <p>This route will get all news by a user</p>
+            </div>
+            <div class="elem">
+                <p><strong>/departments</strong></p>
+                <p>This route will get all departments in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/departments/:departmentId</strong></p>
+                <p>This route will get a department by its Id in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/departments/:departmentId/users</strong></p>
+                <p>This route will get all users by their department</p>
+            </div>
+            <div class="elem">
+                <p><strong>/departments/:departmentId/users/:userId</strong></p>
+                <p>This route will get a users in a department by their Id</p>
+            </div>
+            <div class="elem">
+                <p><strong>/departments/:departmentId/news</strong></p>
+                <p>This route will get department news by department in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/departmentnews</strong></p>
+                <p>This route will get all department news in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/departmentnews/:id</strong></p>
+                <p>This route will get department news by Id in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/generalnews</strong></p>
+                <p>This route will get all general news in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/generalnews/:id</strong></p>
+                <p>This route will get general news by Id in the database</p>
+            </div>
+            <div class="elem">
+                <p><strong>/news</strong></p>
+                <p>This route will get all news</p>
+            </div>
+        </div>
+    </div>
+{{/partial}}
+{{>layout.hbs}}

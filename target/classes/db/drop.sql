@@ -1,0 +1,2 @@
+DROP DATABASE orgapitest;
+DROP DATABASE orgapi;
